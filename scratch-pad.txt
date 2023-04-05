@@ -15,10 +15,24 @@ _________________________
 name: VARCHAR(255) => string
 species: VARCHAR(255) => string
 description: TEXT => text
-// use camel for forieng keys: parentModelNameId
+// use camelCase for forieng keys: parentModelNameId
 userId: FK (integer) REFERENCES user.id of the user who owns the pet => integer
 
 sequelize model:create --name pet --attributes name:string,species:string,description:text,userId:integer
 
+pets_toys table => pets_toys model
+_________________________
+// use camelCase for forieng keys: parentModelNameId
+toyId: FK REFERENCES toy.id (integer)
+petId: FK REFERENCES pet.id (integer)
+
+sequelize model:create --name pets_toys --attributes toyId:integer,petId:integer
+
+TOYS TABLE => toy model
+_________________________
+type: VARCHAR(255) => string
+color: VARCHAR(255) => string
+
+sequelize model:create --name toy --attributes type:string,color:string
 
 

@@ -13,6 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       // the 1 in a 1:M is called 'belongsTo'
       models.pet.belongsTo(models.user)
+      // N:M 'belongsToMany, through: join_table'
+      models.pet.belongsToMany(models.toy, { through: 'pets_toys' })
     }
   }
   pet.init({
